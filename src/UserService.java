@@ -1,32 +1,30 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class UserService {
-    private static List<User> users = new ArrayList<>();
-    private static int nextUserId = 1;
-    
+    static ArrayList<User> users = new ArrayList<User>();
+    static int nextId = 1;
+
     static {
-        users.add(new User(nextUserId++, "admin", "admin123", "admin@test.com"));
-        users.add(new User(nextUserId++, "user", "user123", "user@test.com"));
+        users.add(new User(nextId++, "admin", "admin123", "admin@gmail.com"));
+        users.add(new User(nextId++, "user", "user123", "user@gmail.com"));
     }
-    
-    public User login(String username, String password) {
-        for (User user : users) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return user;
+
+    User login(String u, String p) {
+        for (User x : users) {
+            if (x.getUname().equals(u) && x.getPass().equals(p)) {
+                return x;
             }
         }
         return null;
     }
-    
-    public boolean register(String username, String password, String email) {
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
+
+    boolean register(String u, String p, String e) {
+        for (User x : users) {
+            if (x.getUname().equals(u)) {
                 return false;
             }
         }
-        User newUser = new User(nextUserId++, username, password, email);
-        users.add(newUser);
+        users.add(new User(nextId++, u, p, e));
         return true;
     }
 }
