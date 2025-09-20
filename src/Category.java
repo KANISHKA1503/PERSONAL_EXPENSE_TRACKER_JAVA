@@ -1,24 +1,36 @@
 public class Category {
-    private int id;
-    private String name;
-    
-    public Category() {}
-    
-    public Category(String name) {
-        this.name = name;
+    int id;
+    String name;
+
+    Category() {
     }
-    
-    public Category(int id, String name) {
-        this.id = id;
-        this.name = name;
+
+    Category(String n) {
+        name = n;
     }
-    
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    
+
+    Category(int i, String n) {
+        id = i;
+        name = n;
+    }
+
+    int getId() {
+        return id;
+    }
+
+    void setId(int i) {
+        id = i;
+    }
+
+    String getName() {
+        return name;
+    }
+
+    void setName(String n) {
+        name = n;
+    }
+
     public String toString() {
-        return "ID: " + id + " | Name: " + name;
+        return id + " - " + name;
     }
 }
