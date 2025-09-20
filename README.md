@@ -27,3 +27,9 @@ Transaction Viewing
 List all transactions in a readable format
 Summary Report
 Show total income, total expense, and balance
+
+USE CASE DIAGRAM
+<img width="613" height="696" alt="image" src="https://github.com/user-attachments/assets/03ba505d-05b8-4b8e-ab77-59d41ced9dfa" />
+
+
+
