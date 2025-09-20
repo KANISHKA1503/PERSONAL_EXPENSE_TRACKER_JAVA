@@ -39,7 +39,7 @@ public class Expense {
     public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
     
     public String toString() {
-        return String.format("ID: %d | Amount: $%.2f | %s | Date: %s | Category: %s", 
+        return String.format("ID: %d | Amount: ₹%.2f | %s | Date: %s | Category: %s", 
                            id, amount, description, date, categoryName);
     }
 }
