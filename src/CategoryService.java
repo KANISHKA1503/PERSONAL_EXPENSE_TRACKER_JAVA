@@ -1,45 +1,39 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class CategoryService {
-    private static List<Category> categories = new ArrayList<>();
-    private static int nextCategoryId = 1;
-    
+    static ArrayList<Category> categories = new ArrayList<Category>();
+    static int nextId = 1;
+
     static {
-        categories.add(new Category(nextCategoryId++, "Food"));
-        categories.add(new Category(nextCategoryId++, "Clothing"));
-        categories.add(new Category(nextCategoryId++, "Cosmetics"));
-        categories.add(new Category(nextCategoryId++, "Medicine"));
-        categories.add(new Category(nextCategoryId++, "Stationary"));
-        categories.add(new Category(nextCategoryId++, "Transport"));
-        categories.add(new Category(nextCategoryId++, "Entertainment"));
-        categories.add(new Category(nextCategoryId++, "Bills"));
-        categories.add(new Category(nextCategoryId++, "Others"));
+        categories.add(new Category(nextId++, "Food"));
+        categories.add(new Category(nextId++, "Clothing"));
+        categories.add(new Category(nextId++, "Cosmetics"));
+        categories.add(new Category(nextId++, "Medicine"));
+        categories.add(new Category(nextId++, "Stationary"));
+        categories.add(new Category(nextId++, "Transport"));
+        categories.add(new Category(nextId++, "Entertainment"));
+        categories.add(new Category(nextId++, "Bills"));
+        categories.add(new Category(nextId++, "Others"));
     }
-    
-    public static void showAllCategories() {
-        System.out.println("Available Categories:");
-        for (Category category : categories) {
-            System.out.println(category);
+
+    static void showAllCategories() {
+        System.out.println("Categories:");
+        for (Category c : categories) {
+            System.out.println(c);
         }
     }
-    
-    public static String getCategoryName(int categoryId) {
-        for (Category category : categories) {
-            if (category.getId() == categoryId) {
-                return category.getName();
+
+    static String getCategoryName(int id) {
+        for (Category c : categories) {
+            if (c.getId() == id) {
+                return c.getName();
             }
         }
-        return "Unknown";
+        return "Not Found";
     }
-    
-    public static boolean addCategory(String name) {
-        try {
-            categories.add(new Category(nextCategoryId++, name));
-            System.out.println("Category added successfully!");
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+
+    static void addCategory(String name) {
+        categories.add(new Category(nextId++, name));
+        System.out.println("Category Added");
     }
 }
