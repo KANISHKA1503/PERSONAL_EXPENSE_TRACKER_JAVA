@@ -1,54 +1,54 @@
 public class User {
-    int id;
-    String uname;
-    String pass;
-    String email;
+    private int id;
+    private String username;
+    private String password;
+    private String email;
 
-    User() {
+    public User() {
     }
 
-    User(String u, String p, String e) {
-        uname = u;
-        pass = p;
-        email = e;
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
-    User(int i, String u, String p, String e) {
-        id = i;
-        uname = u;
-        pass = p;
-        email = e;
+    public User(int id, String username, String password, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
-    int getId() {
+    public int getId() {
         return id;
     }
 
-    void setId(int i) {
-        id = i;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    String getUname() {
-        return uname;
+    public String getUsername() {
+        return username;
     }
 
-    void setUname(String u) {
-        uname = u;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    void setPass(String p) {
-        pass = p;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    void setEmail(String e) {
-        email = e;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
