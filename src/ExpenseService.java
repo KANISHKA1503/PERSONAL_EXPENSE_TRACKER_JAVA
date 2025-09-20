@@ -37,7 +37,7 @@ public class ExpenseService {
             total += expense.getAmount();
         }
         System.out.println("===============================================");
-        System.out.printf("Total Amount: $%.2f%n", total);
+        System.out.printf("Total Amount: ₹%.2f%n", total);
     }
     
     public void viewExpensesByCategory(int userId, int categoryId) {
@@ -63,7 +63,7 @@ public class ExpenseService {
             total += expense.getAmount();
         }
         System.out.println("===============================================");
-        System.out.printf("Total Amount: $%.2f%n", total);
+        System.out.printf("Total Amount: ₹%.2f%n", total);
     }
     
     public boolean deleteExpense(int expenseId, int userId) {
