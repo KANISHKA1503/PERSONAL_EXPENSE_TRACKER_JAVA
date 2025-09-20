@@ -119,7 +119,7 @@ public class Main {
     
     private static void addExpense() {
         try {
-            System.out.print("Enter expense amount: $");
+            System.out.print("Enter expense amount (₹): ");
             double amount = scanner.nextDouble();
             scanner.nextLine();
             
