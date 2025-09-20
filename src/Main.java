@@ -7,7 +7,7 @@ public class Main {
     static User current = null;
 
     public static void main(String[] args) {
-        System.out.println("== Expense Tracker ==");
+        System.out.println("   Expense Tracker ");
 
         while (true) {
             if (current == null) {
