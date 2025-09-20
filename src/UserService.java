@@ -11,7 +11,7 @@ public class UserService {
 
     User login(String u, String p) {
         for (User x : users) {
-            if (x.getUname().equals(u) && x.getPass().equals(p)) {
+            if (x.getUsername().equals(u) && x.getPassword().equals(p)) {
                 return x;
             }
         }
@@ -20,7 +20,7 @@ public class UserService {
 
     boolean register(String u, String p, String e) {
         for (User x : users) {
-            if (x.getUname().equals(u)) {
+            if (x.getUsername().equals(u)) {
                 return false;
             }
         }
