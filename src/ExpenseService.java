@@ -1,89 +1,80 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class ExpenseService {
-    private static List<Expense> expenses = new ArrayList<>();
-    private static int nextExpenseId = 1;
-    
-    public boolean addExpense(Expense expense) {
-        try {
-            expense.setId(nextExpenseId++);
-            expenses.add(expense);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    static ArrayList<Expense> expenses = new ArrayList<Expense>();
+    static int nextId = 1;
+
+    boolean addExpense(Expense e) {
+        e.setId(nextId++);
+        expenses.add(e);
+        return true;
     }
-    
-    public void viewAllExpenses(int userId) {
-        List<Expense> userExpenses = new ArrayList<>();
-        for (Expense expense : expenses) {
-            if (expense.getUserId() == userId) {
-                userExpenses.add(expense);
+
+    void viewAllExpenses(int userId) {
+        ArrayList<Expense> list = new ArrayList<Expense>();
+        for (Expense ex : expenses) {
+            if (ex.getUserId() == userId) {
+                list.add(ex);
             }
         }
-        
-        if (userExpenses.isEmpty()) {
-            System.out.println("No expenses found!");
+
+        if (list.size() == 0) {
+            System.out.println("No expenses");
             return;
         }
-        
+
         System.out.println("Your Expenses:");
-        System.out.println("===============================================");
-        double total = 0.0;
-        for (Expense expense : userExpenses) {
-            expense.setCategoryName(CategoryService.getCategoryName(expense.getCategoryId()));
-            System.out.println(expense);
-            total += expense.getAmount();
+        double total = 0;
+        for (Expense ex : list) {
+            ex.setCatName(CategoryService.getCategoryName(ex.getCatId()));
+            System.out.println(ex);
+            total += ex.getAmount();
         }
-        System.out.println("===============================================");
-        System.out.printf("Total Amount: ₹%.2f%n", total);
+        System.out.println("Total = ₹" + total);
     }
-    
-    public void viewExpensesByCategory(int userId, int categoryId) {
-        List<Expense> categoryExpenses = new ArrayList<>();
-        for (Expense expense : expenses) {
-            if (expense.getUserId() == userId && expense.getCategoryId() == categoryId) {
-                categoryExpenses.add(expense);
+
+    void viewExpensesByCategory(int userId, int catId) {
+        ArrayList<Expense> list = new ArrayList<Expense>();
+        for (Expense ex : expenses) {
+            if (ex.getUserId() == userId && ex.getCatId() == catId) {
+                list.add(ex);
             }
         }
-        
-        if (categoryExpenses.isEmpty()) {
-            System.out.println("No expenses found for this category!");
+
+        if (list.size() == 0) {
+            System.out.println("No expenses in this category");
             return;
         }
-        
-        String categoryName = CategoryService.getCategoryName(categoryId);
-        System.out.println("Expenses for Category: " + categoryName);
-        System.out.println("===============================================");
-        double total = 0.0;
-        for (Expense expense : categoryExpenses) {
-            expense.setCategoryName(categoryName);
-            System.out.println(expense);
-            total += expense.getAmount();
+
+        String catName = CategoryService.getCategoryName(catId);
+        System.out.println("Category: " + catName);
+        double total = 0;
+        for (Expense ex : list) {
+            ex.setCatName(catName);
+            System.out.println(ex);
+            total += ex.getAmount();
         }
-        System.out.println("===============================================");
-        System.out.printf("Total Amount: ₹%.2f%n", total);
+        System.out.println("Total = ₹" + total);
     }
-    
-    public boolean deleteExpense(int expenseId, int userId) {
+
+    boolean deleteExpense(int exId, int userId) {
         for (int i = 0; i < expenses.size(); i++) {
-            Expense expense = expenses.get(i);
-            if (expense.getId() == expenseId && expense.getUserId() == userId) {
+            Expense ex = expenses.get(i);
+            if (ex.getId() == exId && ex.getUserId() == userId) {
                 expenses.remove(i);
                 return true;
             }
         }
         return false;
     }
-    
-    public List<Expense> getUserExpenses(int userId) {
-        List<Expense> userExpenses = new ArrayList<>();
-        for (Expense expense : expenses) {
-            if (expense.getUserId() == userId) {
-                userExpenses.add(expense);
+
+    ArrayList<Expense> getUserExpenses(int userId) {
+        ArrayList<Expense> list = new ArrayList<Expense>();
+        for (Expense ex : expenses) {
+            if (ex.getUserId() == userId) {
+                list.add(ex);
             }
         }
-        return userExpenses;
+        return list;
     }
 }
